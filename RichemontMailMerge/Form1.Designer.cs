@@ -93,6 +93,10 @@
             this.button11 = new System.Windows.Forms.Button();
             this.webBrowser4 = new System.Windows.Forms.WebBrowser();
             this.textBox6 = new System.Windows.Forms.TextBox();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -103,6 +107,7 @@
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -386,6 +391,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // panel4
             // 
@@ -421,7 +427,7 @@
             // 
             this.panel8.Controls.Add(this.treeView1);
             this.panel8.Controls.Add(this.button3);
-            this.panel8.Location = new System.Drawing.Point(1352, 5);
+            this.panel8.Location = new System.Drawing.Point(1361, 1);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(370, 170);
             this.panel8.TabIndex = 28;
@@ -876,12 +882,58 @@
             this.textBox6.Size = new System.Drawing.Size(246, 26);
             this.textBox6.TabIndex = 11;
             // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.label15);
+            this.panel11.Controls.Add(this.label13);
+            this.panel11.Controls.Add(this.comboBox1);
+            this.panel11.Location = new System.Drawing.Point(184, 49);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(1547, 804);
+            this.panel11.TabIndex = 25;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(455, 185);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(581, 28);
+            this.comboBox1.TabIndex = 0;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Blue;
+            this.label13.Location = new System.Drawing.Point(592, 54);
+            this.label13.Name = "label13";
+            this.label13.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.label13.Size = new System.Drawing.Size(274, 34);
+            this.label13.TabIndex = 14;
+            this.label13.Text = "Client Communication Manager";
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Blue;
+            this.label15.Location = new System.Drawing.Point(203, 86);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(1065, 64);
+            this.label15.TabIndex = 15;
+            this.label15.Text = resources.GetString("label15.Text");
+            this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1733, 855);
             this.Controls.Add(this.panel8);
+            this.Controls.Add(this.panel11);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
@@ -908,6 +960,8 @@
             this.panel9.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -978,6 +1032,10 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label13;
     }
 }
 

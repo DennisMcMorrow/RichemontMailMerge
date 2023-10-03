@@ -961,6 +961,13 @@
         AAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="label15.Text" xml:space="preserve">
+    <value>Welcome to the Client Communication Manager! 
+This tool streamlines the process of generating and managing communications for our clients. 
+Whether you're handling new hire letters, insufficient document notifications, or other client-specific communications, this tool is designed to make the process efficient and error-free. 
+Simply select a client from the dropdown to get started.
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA
