@@ -26,10 +26,8 @@ namespace RichemontMailMerge
         {
             InitializeComponent();
 
-            // Assuming you have a list of client names
             List<string> clients = new List<string> { "Please select a client", "Richemont", "Primetals", "Caromont" };
 
-            // Populate the ComboBox
             comboBox1.DataSource = clients;
 
             // Set up placeholder text for text boxes
@@ -69,6 +67,14 @@ namespace RichemontMailMerge
                 panel8.Visible = false;
                 panel2.Height = button4.Height;
                 panel2.Top = button4.Top;
+            }
+            if (selectedClient == "Primetals")
+            {
+                return;
+            }
+            if (selectedClient == "Caromont")
+            {
+                return;
             }
         }
 
@@ -130,6 +136,11 @@ namespace RichemontMailMerge
             letterNode.Nodes.Add(noteNode);
 
             treeView1.Nodes.Add(letterNode);
+        }
+
+        private void ProcessNewHireData(string inputFilePath)
+        {
+            // ... (all the file processing logic from button1_Click)
         }
 
         private void button1_Click(object sender, EventArgs e)
