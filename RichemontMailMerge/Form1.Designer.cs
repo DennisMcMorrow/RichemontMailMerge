@@ -46,6 +46,8 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -94,9 +96,25 @@
             this.webBrowser4 = new System.Windows.Forms.WebBrowser();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.button13 = new System.Windows.Forms.Button();
+            this.webBrowser5 = new System.Windows.Forms.WebBrowser();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.button14 = new System.Windows.Forms.Button();
+            this.webBrowser6 = new System.Windows.Forms.WebBrowser();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -108,6 +126,8 @@
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -297,6 +317,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel1.Controls.Add(this.button12);
+            this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.button9);
             this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button5);
@@ -307,6 +329,38 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 855);
             this.panel1.TabIndex = 26;
+            // 
+            // button12
+            // 
+            this.button12.FlatAppearance.BorderSize = 0;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.ForeColor = System.Drawing.Color.Black;
+            this.button12.Image = ((System.Drawing.Image)(resources.GetObject("button12.Image")));
+            this.button12.Location = new System.Drawing.Point(2, 375);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(197, 104);
+            this.button12.TabIndex = 34;
+            this.button12.Text = "NH Final Emails";
+            this.button12.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button12.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // button7
+            // 
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.ForeColor = System.Drawing.Color.Black;
+            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
+            this.button7.Location = new System.Drawing.Point(0, 190);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(197, 104);
+            this.button7.TabIndex = 33;
+            this.button7.Text = "NH Emails";
+            this.button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button9
             // 
@@ -892,14 +946,18 @@
             this.panel11.Size = new System.Drawing.Size(1547, 804);
             this.panel11.TabIndex = 25;
             // 
-            // comboBox1
+            // label15
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(455, 185);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(581, 28);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Blue;
+            this.label15.Location = new System.Drawing.Point(203, 86);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(1065, 64);
+            this.label15.TabIndex = 15;
+            this.label15.Text = resources.GetString("label15.Text");
+            this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label13
             // 
@@ -914,30 +972,220 @@
             this.label13.TabIndex = 14;
             this.label13.Text = "Client Communication Manager";
             // 
-            // label15
+            // comboBox1
             // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Blue;
-            this.label15.Location = new System.Drawing.Point(203, 86);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(1065, 64);
-            this.label15.TabIndex = 15;
-            this.label15.Text = resources.GetString("label15.Text");
-            this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(455, 185);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(581, 28);
+            this.comboBox1.TabIndex = 0;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel12.Controls.Add(this.label23);
+            this.panel12.Controls.Add(this.label24);
+            this.panel12.Controls.Add(this.label25);
+            this.panel12.Controls.Add(this.label26);
+            this.panel12.Controls.Add(this.label27);
+            this.panel12.Controls.Add(this.button13);
+            this.panel12.Controls.Add(this.webBrowser5);
+            this.panel12.Location = new System.Drawing.Point(209, 10);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(1519, 840);
+            this.panel12.TabIndex = 33;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Blue;
+            this.label23.Location = new System.Drawing.Point(3, 0);
+            this.label23.Name = "label23";
+            this.label23.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.label23.Size = new System.Drawing.Size(200, 34);
+            this.label23.TabIndex = 1;
+            this.label23.Text = "NH Emails for Sunland";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.Blue;
+            this.label24.Location = new System.Drawing.Point(4, 75);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(749, 16);
+            this.label24.TabIndex = 5;
+            this.label24.Text = "Step 3: Please attach generated new hire emails to issue on issue tracker (this f" +
+    "ile can be found in the letters_generated folder)";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.Blue;
+            this.label25.Location = new System.Drawing.Point(4, 55);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(856, 32);
+            this.label25.TabIndex = 3;
+            this.label25.Text = "Step 2: Once the new hires not enrolled report has been stored you may now begin " +
+    "the process, to begin please click on the create emails sheet \r\nbelow";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.Blue;
+            this.label26.Location = new System.Drawing.Point(4, 95);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(369, 16);
+            this.label26.TabIndex = 8;
+            this.label26.Text = "Step 4: Please load the note generated in the note load folder";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.Color.Blue;
+            this.label27.Location = new System.Drawing.Point(4, 35);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(573, 16);
+            this.label27.TabIndex = 2;
+            this.label27.Text = "Step 1: Please populate new_hire_reports folder with most recent Sunland new hire" +
+    "s not enrolled\r\n";
+            // 
+            // button13
+            // 
+            this.button13.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button13.BackColor = System.Drawing.Color.PaleGreen;
+            this.button13.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button13.Location = new System.Drawing.Point(1029, 50);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(211, 51);
+            this.button13.TabIndex = 0;
+            this.button13.Text = "Create Emails Sheet";
+            this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
+            // webBrowser5
+            // 
+            this.webBrowser5.Location = new System.Drawing.Point(8, 219);
+            this.webBrowser5.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser5.Name = "webBrowser5";
+            this.webBrowser5.Size = new System.Drawing.Size(1502, 578);
+            this.webBrowser5.TabIndex = 19;
+            this.webBrowser5.Url = new System.Uri("http://issuetracker/edit_bug.aspx?id=766143", System.UriKind.Absolute);
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel13.Controls.Add(this.label28);
+            this.panel13.Controls.Add(this.label29);
+            this.panel13.Controls.Add(this.label30);
+            this.panel13.Controls.Add(this.label31);
+            this.panel13.Controls.Add(this.label32);
+            this.panel13.Controls.Add(this.button14);
+            this.panel13.Controls.Add(this.webBrowser6);
+            this.panel13.Location = new System.Drawing.Point(206, 7);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(1519, 840);
+            this.panel13.TabIndex = 34;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.Blue;
+            this.label28.Location = new System.Drawing.Point(3, 0);
+            this.label28.Name = "label28";
+            this.label28.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.label28.Size = new System.Drawing.Size(246, 34);
+            this.label28.TabIndex = 1;
+            this.label28.Text = "NH Final Emails for Sunland";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.ForeColor = System.Drawing.Color.Blue;
+            this.label29.Location = new System.Drawing.Point(4, 75);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(776, 16);
+            this.label29.TabIndex = 5;
+            this.label29.Text = "Step 3: Please attach generated new hire final emails to issue on issue tracker (" +
+    "this file can be found in the letters_generated folder)";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.Color.Blue;
+            this.label30.Location = new System.Drawing.Point(4, 55);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(856, 32);
+            this.label30.TabIndex = 3;
+            this.label30.Text = "Step 2: Once the new hires not enrolled report has been stored you may now begin " +
+    "the process, to begin please click on the create emails sheet \r\nbelow";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.ForeColor = System.Drawing.Color.Blue;
+            this.label31.Location = new System.Drawing.Point(4, 95);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(369, 16);
+            this.label31.TabIndex = 8;
+            this.label31.Text = "Step 4: Please load the note generated in the note load folder";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.Color.Blue;
+            this.label32.Location = new System.Drawing.Point(4, 35);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(573, 16);
+            this.label32.TabIndex = 2;
+            this.label32.Text = "Step 1: Please populate new_hire_reports folder with most recent Sunland new hire" +
+    "s not enrolled\r\n";
+            // 
+            // button14
+            // 
+            this.button14.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button14.BackColor = System.Drawing.Color.PaleGreen;
+            this.button14.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button14.Location = new System.Drawing.Point(1029, 50);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(211, 51);
+            this.button14.TabIndex = 0;
+            this.button14.Text = "Create Emails Sheet";
+            this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // webBrowser6
+            // 
+            this.webBrowser6.Location = new System.Drawing.Point(8, 219);
+            this.webBrowser6.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser6.Name = "webBrowser6";
+            this.webBrowser6.Size = new System.Drawing.Size(1502, 578);
+            this.webBrowser6.TabIndex = 19;
+            this.webBrowser6.Url = new System.Uri("http://issuetracker/edit_bug.aspx?id=766148", System.UriKind.Absolute);
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1733, 855);
+            this.Controls.Add(this.panel13);
+            this.Controls.Add(this.panel12);
             this.Controls.Add(this.panel8);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -962,6 +1210,10 @@
             this.panel10.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1036,6 +1288,24 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.WebBrowser webBrowser5;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.WebBrowser webBrowser6;
     }
 }
 

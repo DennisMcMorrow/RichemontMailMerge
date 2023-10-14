@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static RichemontMailMerge.Form1;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 using Excel = Microsoft.Office.Interop.Excel;
 using Word = Microsoft.Office.Interop.Word;
 
@@ -21,12 +22,22 @@ namespace RichemontMailMerge
     {
         private List<EeidNote> eeidNotes = new List<EeidNote>();
         private List<EmployeeData> employeeDataList = new List<EmployeeData>();
+        private List<System.Windows.Forms.Button> managedButtons = new List<System.Windows.Forms.Button>();
 
         public Form1()
         {
             InitializeComponent();
 
-            List<string> clients = new List<string> { "Please select a client", "Richemont", "Primetals", "Caromont" };
+            managedButtons.Add(button4);
+            managedButtons.Add(button5);
+            managedButtons.Add(button6);
+            managedButtons.Add(button7);
+            managedButtons.Add(button9);
+
+            button4.BackColor = Color.DimGray;
+            button7.BackColor = Color.DimGray;
+
+            List<string> clients = new List<string> { "Please select a client", "Richemont", "Sunland", "Primetals", "Caromont" };
 
             comboBox1.DataSource = clients;
 
@@ -40,11 +51,19 @@ namespace RichemontMailMerge
             SetupPlaceholderText(textBox7, "Enter EE email address");
 
             // Set initial panel visibility
-            Panel[] panels = { panel4, panel5, panel6, panel7, panel8 };
+            Panel[] panels = { panel4, panel5, panel6, panel7, panel8, panel12, panel13 };
             foreach (var panel in panels)
             {
                 panel.Visible = false;
             }
+
+            button12.Visible = false;
+            button7.Visible = false;
+
+            button4.Visible = false;
+            button5.Visible = false;
+            button6.Visible = false;
+            button9.Visible = false;
         }
 
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -61,12 +80,44 @@ namespace RichemontMailMerge
             {
                 panel11.Visible = false;
                 panel4.Visible = true;
+                panel12.Visible = false;
                 panel5.Visible = false;
                 panel6.Visible = false;
                 panel7.Visible = false;
                 panel8.Visible = false;
                 panel2.Height = button4.Height;
                 panel2.Top = button4.Top;
+
+                button12.Visible = false;
+                button7.Visible = false;
+
+                button4.Visible = true;
+                button5.Visible = true;
+                button6.Visible = true;
+                button9.Visible = true;
+
+            }
+            if (selectedClient == "Sunland")
+            {
+                panel11.Visible = false;
+                panel12.Visible = true;
+                panel4.Visible = false;
+                panel5.Visible = false;
+                panel6.Visible = false;
+                panel7.Visible = false;
+                panel8.Visible = false;
+                button4.Visible = false;
+                button5.Visible = false;
+                button6.Visible = false;
+                button9.Visible = false;
+
+                button12.Visible = true;
+                button7.Visible = true;
+
+                button4.Visible = false;
+                button5.Visible = false;
+                button6.Visible = false;
+                button9.Visible = false;
             }
             if (selectedClient == "Primetals")
             {
@@ -97,6 +148,30 @@ namespace RichemontMailMerge
                     textBox.Text = placeholderText;
                 }
             };
+        }
+
+        private void HandleButtonDimming(System.Windows.Forms.Button clickedButton)
+        {
+            foreach (System.Windows.Forms.Button btn in managedButtons)
+            {
+                if (btn == clickedButton)
+                {
+                    btn.BackColor = Color.DimGray; // Dim the clicked button
+                }
+                else
+                {
+                    btn.BackColor = SystemColors.Control; // Undim the other buttons
+                }
+            }
+        }
+
+        private void ManagedButton_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Button clickedButton = sender as System.Windows.Forms.Button;
+            if (clickedButton != null)
+            {
+                HandleButtonDimming(clickedButton);
+            }
         }
 
         public class Record
@@ -363,6 +438,7 @@ namespace RichemontMailMerge
 
         private void button4_Click(object sender, EventArgs e)
         {
+            HandleButtonDimming(button4);
             panel11.Visible = false;
             panel4.Visible = true;
             panel5.Visible = false;
@@ -375,6 +451,7 @@ namespace RichemontMailMerge
 
         private void button5_Click(object sender, EventArgs e)
         {
+            HandleButtonDimming(button5);
             panel11.Visible = false;
             panel8.Visible = true;
             panel4.Visible = false;
@@ -388,6 +465,7 @@ namespace RichemontMailMerge
 
         private void button6_Click(object sender, EventArgs e)
         {
+            HandleButtonDimming(button6);
             panel11.Visible = false;
             panel4.Visible = false;
             panel5.Visible = false;
@@ -400,6 +478,7 @@ namespace RichemontMailMerge
 
         private void button9_Click(object sender, EventArgs e)
         {
+            HandleButtonDimming(button9);
             panel11.Visible = false;
             panel4.Visible = false;
             panel5.Visible = false;
@@ -408,6 +487,23 @@ namespace RichemontMailMerge
             panel8.Visible = true;
             panel2.Height = button9.Height;
             panel2.Top = button9.Top;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            HandleButtonDimming(button7);
+            panel12.Visible = true;
+            panel13.Visible = false;
+            panel2.Height = button7.Height;
+            panel2.Top = button7.Top;
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            panel12.Visible = false;
+            panel13.Visible = true;
+            panel2.Height = button12.Height;
+            panel2.Top = button12.Top;
         }
 
         private void button8_Click_1(object sender, EventArgs e)
@@ -680,13 +776,231 @@ namespace RichemontMailMerge
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             panel11.Visible = true;
+            panel12.Visible = false;
+            panel13.Visible = false;
             panel8.Visible = false;
             panel4.Visible = false;
             panel5.Visible = false;
             panel6.Visible = false;
             panel7.Visible = false;
             panel8.Visible = false;
+
+            button12.Visible = false;
+            button7.Visible = false;
+
+            button4.Visible = false;
+            button5.Visible = false;
+            button6.Visible = false;
+            button9.Visible = false;
+
+            panel2.Height = button4.Height;
+            panel2.Top = button4.Top;
         }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "CSV Files|*.csv",
+                Title = "Select a CSV File"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                DateTime currentDate = DateTime.Now;
+                string dateString1 = currentDate.ToString("yyyyMMdd");
+
+                string mailMergeExcelFileName = $"NHWE.{dateString1}.sunland";
+                string inputFilePath = openFileDialog.FileName;
+
+                string basePath = @"G:\Account Support Team\Sunland Asphalt\Communications\Dennis Automated Communications";
+                string outputExcelFilePath = Path.Combine(basePath, "output", "new_hire_emails_generated", mailMergeExcelFileName + ".xlsx");
+                string csvFilePath = Path.Combine(basePath, "output", "noteload", $"new hire emails noteload {dateString1}.csv");
+
+                Excel.Application excelApp = new Excel.Application();
+                excelApp.Visible = true;
+
+                Excel.Workbook inputWorkbook = excelApp.Workbooks.Open(inputFilePath);
+                Excel.Worksheet inputWorksheet = inputWorkbook.Sheets[1];
+                Excel.Range usedRange = inputWorksheet.UsedRange;
+
+                List<int> rowsToCopy = new List<int>();
+                List<string> columnsToKeep = new List<string> { "EmployeeId", "FirstName", "LastName", "WorkEmail", "PersonalEmail" };
+                List<int> columnIndicesToKeep = new List<int>();
+                int enrollmentStatusColumnIndex = 0;
+
+                for (int col = 1; col <= usedRange.Columns.Count; col++)
+                {
+                    string header = ((Excel.Range)usedRange.Cells[1, col]).Value.ToString();
+                    if (columnsToKeep.Contains(header))
+                    {
+                        columnIndicesToKeep.Add(col);
+                    }
+                    if (header == "EnrollmentStatus")
+                    {
+                        enrollmentStatusColumnIndex = col;
+                    }
+                }
+
+                for (int row = 2; row <= usedRange.Rows.Count; row++)
+                {
+                    if (int.TryParse(((Excel.Range)usedRange.Cells[row, 1]).Value.ToString(), out int daysRemaining) && daysRemaining > 14)
+                    {
+                        string enrollmentStatus = ((Excel.Range)usedRange.Cells[row, enrollmentStatusColumnIndex]).Value.ToString();
+                        if (enrollmentStatus != "Canceled")
+                        {
+                            rowsToCopy.Add(row);
+                        }
+                    }
+                }
+
+                Excel.Workbook outputWorkbook = excelApp.Workbooks.Add();
+                Excel.Worksheet outputWorksheet = outputWorkbook.Sheets[1];
+
+                // Copy headers
+                for (int i = 0; i < columnIndicesToKeep.Count; i++)
+                {
+                    outputWorksheet.Cells[1, i + 1].Value = ((Excel.Range)usedRange.Cells[1, columnIndicesToKeep[i]]).Value;
+                }
+
+                // Copy rows
+                int outputRow = 2;
+                foreach (int row in rowsToCopy)
+                {
+                    for (int i = 0; i < columnIndicesToKeep.Count; i++)
+                    {
+                        outputWorksheet.Cells[outputRow, i + 1].Value = ((Excel.Range)usedRange.Cells[row, columnIndicesToKeep[i]]).Value;
+                    }
+                    outputRow++;
+                }
+
+                outputWorkbook.SaveAs(outputExcelFilePath);
+
+                var data = new List<Record>();
+                for (int i = 2; i < outputRow; i++)
+                {
+                    string eeid = outputWorksheet.Cells[i, 1].Value.ToString();
+                    data.Add(new Record { CaseID = "194", EEID = eeid, NoteText = "**NH Emails Sent**", Private = "" });
+                }
+
+                using (var writer = new StreamWriter(csvFilePath))
+                using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    csv.WriteHeader<Record>();
+                    csv.NextRecord();
+                    csv.WriteRecords(data);
+                }
+
+                inputWorkbook.Close(false);
+                outputWorkbook.Close(false);
+                excelApp.Quit();
+
+                System.Windows.Forms.MessageBox.Show("New hire emails and noteload have generated successfully.");
+            }
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "CSV Files|*.csv",
+                Title = "Select a CSV File"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                DateTime currentDate = DateTime.Now;
+                string dateString1 = currentDate.ToString("yyyyMMdd");
+
+                string mailMergeExcelFileName = $"NHFRE.{dateString1}.sunland";
+                string inputFilePath = openFileDialog.FileName;
+
+                string basePath = @"G:\Account Support Team\Sunland Asphalt\Communications\Dennis Automated Communications";
+                string outputExcelFilePath = Path.Combine(basePath, "output", "new_hire_final_emails_generated", mailMergeExcelFileName + ".xlsx");
+                string csvFilePath = Path.Combine(basePath, "output", "noteload", $"new hire final emails noteload {dateString1}.csv");
+
+                Excel.Application excelApp = new Excel.Application();
+                excelApp.Visible = true;
+
+                Excel.Workbook inputWorkbook = excelApp.Workbooks.Open(inputFilePath);
+                Excel.Worksheet inputWorksheet = inputWorkbook.Sheets[1];
+                Excel.Range usedRange = inputWorksheet.UsedRange;
+
+                List<int> rowsToCopy = new List<int>();
+                List<string> columnsToKeep = new List<string> { "EmployeeId", "FirstName", "LastName", "WorkEmail", "PersonalEmail" };
+                List<int> columnIndicesToKeep = new List<int>();
+                int enrollmentStatusColumnIndex = 0;
+
+                for (int col = 1; col <= usedRange.Columns.Count; col++)
+                {
+                    string header = ((Excel.Range)usedRange.Cells[1, col]).Value.ToString();
+                    if (columnsToKeep.Contains(header))
+                    {
+                        columnIndicesToKeep.Add(col);
+                    }
+                    if (header == "EnrollmentStatus")
+                    {
+                        enrollmentStatusColumnIndex = col;
+                    }
+                }
+
+                for (int row = 2; row <= usedRange.Rows.Count; row++)
+                {
+                    if (int.TryParse(((Excel.Range)usedRange.Cells[row, 1]).Value.ToString(), out int daysRemaining) && daysRemaining <= 14)
+                    {
+                        string enrollmentStatus = ((Excel.Range)usedRange.Cells[row, enrollmentStatusColumnIndex]).Value.ToString();
+                        if (enrollmentStatus != "Canceled")
+                        {
+                            rowsToCopy.Add(row);
+                        }
+                    }
+                }
+
+                Excel.Workbook outputWorkbook = excelApp.Workbooks.Add();
+                Excel.Worksheet outputWorksheet = outputWorkbook.Sheets[1];
+
+                // Copy headers
+                for (int i = 0; i < columnIndicesToKeep.Count; i++)
+                {
+                    outputWorksheet.Cells[1, i + 1].Value = ((Excel.Range)usedRange.Cells[1, columnIndicesToKeep[i]]).Value;
+                }
+
+                // Copy rows
+                int outputRow = 2;
+                foreach (int row in rowsToCopy)
+                {
+                    for (int i = 0; i < columnIndicesToKeep.Count; i++)
+                    {
+                        outputWorksheet.Cells[outputRow, i + 1].Value = ((Excel.Range)usedRange.Cells[row, columnIndicesToKeep[i]]).Value;
+                    }
+                    outputRow++;
+                }
+
+                outputWorkbook.SaveAs(outputExcelFilePath);
+
+                var data = new List<Record>();
+                for (int i = 2; i < outputRow; i++)
+                {
+                    string eeid = outputWorksheet.Cells[i, 1].Value.ToString();
+                    data.Add(new Record { CaseID = "194", EEID = eeid, NoteText = "**NH Final Emails Sent**", Private = "" });
+                }
+
+                using (var writer = new StreamWriter(csvFilePath))
+                using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    csv.WriteHeader<Record>();
+                    csv.NextRecord();
+                    csv.WriteRecords(data);
+                }
+
+                inputWorkbook.Close(false);
+                outputWorkbook.Close(false);
+                excelApp.Quit();
+
+                System.Windows.Forms.MessageBox.Show("New hire finals emails and noteload have generated successfully.");
+            }
+        }
+
     }
 }
 

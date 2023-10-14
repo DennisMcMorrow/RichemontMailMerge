@@ -1,6 +1,11 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
+using Excel = Microsoft.Office.Interop.Excel;
+using Word = Microsoft.Office.Interop.Word;
 using static RichemontMailMerge.Form1;
 
 public class NewHire
@@ -15,29 +20,41 @@ public class NewHire
 public class NewHireProcessor
 {
     public List<string> Errors { get; private set; } = new List<string>();
-
-    public void ReadCsvData()
-    {
-        // public List<EmployeeData> ReadCsvData()
-        // Logic to read data from the CSV file at InputCsvPath
-        // Convert this data into a list of EmployeeData objects and return
-    }
-
-    public void GenerateMailMergeExcel()
-    {
-        // Logic to generate a mail merge Excel file based on the data read from the CSV
-        // Save this Excel file at OutputExcelPath
-    }
-
-    public void GenerateWordDocument()
-    {
-        // Logic to generate a Word document for new hires based on the data from the Excel file
-        // Save this Word document at OutputWordPath
-    }
-
     public string InputCsvPath { get; set; }
     public string OutputExcelPath { get; set; }
     public string OutputWordPath { get; set; }
+
+    public List<Record> ReadCsvData(string filePath)
+    {
+        using (var reader = new StreamReader(filePath))
+        using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+        {
+            var records = csv.GetRecords<Record>().ToList();
+            return records;
+        }
+    }
+
+    public void GenerateMailMergeExcel(string inputFilePath, string outputFilePath)
+    {
+        Excel.Application excelApp = new Excel.Application();
+        Excel.Workbook inputWorkbook = excelApp.Workbooks.Open(inputFilePath);
+        Excel.Worksheet inputWorksheet = inputWorkbook.Sheets[1];
+        // ... (rest of the logic to generate the Excel file for mail merge)
+        inputWorkbook.Close(false);
+        excelApp.Quit();
+    }
+
+    public void GenerateWordDocument(string excelDataSourcePath, string templatePath, string outputWordFilePath)
+    {
+        Word.Application wordApp = new Word.Application();
+        Word.Document document = wordApp.Documents.Open(templatePath);
+        document.MailMerge.MainDocumentType = Word.WdMailMergeMainDocType.wdFormLetters;
+        document.MailMerge.OpenDataSource(excelDataSourcePath);
+        document.MailMerge.Execute(Pause: true);
+        wordApp.ActiveDocument.SaveAs2(outputWordFilePath);
+        wordApp.ActiveDocument.Close();
+        wordApp.Quit();
+    }
 
     public bool ProcessNewHireData(List<NewHire> newHires)
     {
