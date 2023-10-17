@@ -34,9 +34,6 @@ namespace RichemontMailMerge
             managedButtons.Add(button7);
             managedButtons.Add(button9);
 
-            button4.BackColor = Color.DimGray;
-            button7.BackColor = Color.DimGray;
-
             List<string> clients = new List<string> { "Please select a client", "Richemont", "Sunland", "Primetals", "Caromont" };
 
             comboBox1.DataSource = clients;
@@ -66,7 +63,7 @@ namespace RichemontMailMerge
             button9.Visible = false;
         }
 
-        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e) //Method that handles when user selects a client
         {
             if (comboBox1.SelectedIndex == 0) // If the placeholder is selected
             {
@@ -129,7 +126,7 @@ namespace RichemontMailMerge
             }
         }
 
-        private void SetupPlaceholderText(System.Windows.Forms.TextBox textBox, string placeholderText)
+        private void SetupPlaceholderText(System.Windows.Forms.TextBox textBox, string placeholderText) //Method for setting placeholder text
         {
             textBox.Text = placeholderText;
 
@@ -148,30 +145,6 @@ namespace RichemontMailMerge
                     textBox.Text = placeholderText;
                 }
             };
-        }
-
-        private void HandleButtonDimming(System.Windows.Forms.Button clickedButton)
-        {
-            foreach (System.Windows.Forms.Button btn in managedButtons)
-            {
-                if (btn == clickedButton)
-                {
-                    btn.BackColor = Color.DimGray; // Dim the clicked button
-                }
-                else
-                {
-                    btn.BackColor = SystemColors.Control; // Undim the other buttons
-                }
-            }
-        }
-
-        private void ManagedButton_Click(object sender, EventArgs e)
-        {
-            System.Windows.Forms.Button clickedButton = sender as System.Windows.Forms.Button;
-            if (clickedButton != null)
-            {
-                HandleButtonDimming(clickedButton);
-            }
         }
 
         public class Record
@@ -198,7 +171,7 @@ namespace RichemontMailMerge
             public string Note { get; set; }
         }
 
-        private void CreateNoteload1(string eeid, string name, string note)
+        private void CreateNoteload1(string eeid, string name, string note) //Method used to create Treenode display for generating a noteload
         {
             TreeNode letterNode = new TreeNode($"Letter for {name} (EEID: {eeid})");
 
@@ -213,12 +186,7 @@ namespace RichemontMailMerge
             treeView1.Nodes.Add(letterNode);
         }
 
-        private void ProcessNewHireData(string inputFilePath)
-        {
-            // ... (all the file processing logic from button1_Click)
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //Button for Richemont New Hire Letters
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
@@ -304,7 +272,7 @@ namespace RichemontMailMerge
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //Button for Richemont Completed Transactions
         {
             string[] lines = textBox1.Text.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
             string note = "";
@@ -390,7 +358,7 @@ namespace RichemontMailMerge
             System.Windows.Forms.MessageBox.Show($"CT letter for {firstName} generated successfully and is ready for noteload.");
         }
 
-        private void button3_Click_1(object sender, EventArgs e)
+        private void button3_Click_1(object sender, EventArgs e) //Button for Richemont noteload Completed Transactions and Insufficient Documents generation
         {
             DateTime currentDate = DateTime.Now;
             string dateString1 = currentDate.ToString("yyyyMMdd");
@@ -436,9 +404,8 @@ namespace RichemontMailMerge
             System.Windows.Forms.MessageBox.Show("CT letter, insufficient document letter, canceled transaction note load has generated successfully.");
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e) //Button to display Panel4, used for Richemont New Hire Letters
         {
-            HandleButtonDimming(button4);
             panel11.Visible = false;
             panel4.Visible = true;
             panel5.Visible = false;
@@ -449,9 +416,8 @@ namespace RichemontMailMerge
             panel2.Top = button4.Top;
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e) //Button to display Panel5, used for Richemont Completed Transactions
         {
-            HandleButtonDimming(button5);
             panel11.Visible = false;
             panel8.Visible = true;
             panel4.Visible = false;
@@ -463,9 +429,8 @@ namespace RichemontMailMerge
             panel2.Top = button5.Top;
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e) //Button to display Panel6, used for Richemont Insufficient Documents
         {
-            HandleButtonDimming(button6);
             panel11.Visible = false;
             panel4.Visible = false;
             panel5.Visible = false;
@@ -476,9 +441,8 @@ namespace RichemontMailMerge
             panel2.Top = button6.Top;
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void button9_Click(object sender, EventArgs e) //Button to display Panel7, used for Richemont Canceled Life Events
         {
-            HandleButtonDimming(button9);
             panel11.Visible = false;
             panel4.Visible = false;
             panel5.Visible = false;
@@ -489,16 +453,15 @@ namespace RichemontMailMerge
             panel2.Top = button9.Top;
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e) //Button to display Panel12, used Sunland New Hire emails
         {
-            HandleButtonDimming(button7);
             panel12.Visible = true;
             panel13.Visible = false;
             panel2.Height = button7.Height;
             panel2.Top = button7.Top;
         }
 
-        private void button12_Click(object sender, EventArgs e)
+        private void button12_Click(object sender, EventArgs e) //Button to display Panel13, used Sunland New Hire Final emails
         {
             panel12.Visible = false;
             panel13.Visible = true;
@@ -506,7 +469,7 @@ namespace RichemontMailMerge
             panel2.Top = button12.Top;
         }
 
-        private void button8_Click_1(object sender, EventArgs e)
+        private void button8_Click_1(object sender, EventArgs e) //Button for Richemont Insufficient Documents
         {
             // Split the text from the TextBox into lines
             string[] lines = textBox4.Text.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
@@ -697,7 +660,7 @@ namespace RichemontMailMerge
             }*/
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void button10_Click(object sender, EventArgs e) //Button for adding Richemont EE to Canceled Life events 
         {
             string currentDate = DateTime.Now.ToString("yyyyMMdd");
             // Get data from the controls
@@ -727,7 +690,7 @@ namespace RichemontMailMerge
             System.Windows.Forms.MessageBox.Show("Employee has been added to the cancel transaction list");
         }
 
-        private void button11_Click(object sender, EventArgs e)
+        private void button11_Click(object sender, EventArgs e) //Button for creating Richemont Canceled Life events spreadsheet
         {
             string dateString1 = DateTime.Now.ToString("yyyyMMdd");
             string canceledTransactionsFileName = $"Richemont Cancel Life Event {dateString1}";
@@ -768,12 +731,7 @@ namespace RichemontMailMerge
             System.Windows.Forms.MessageBox.Show("Cancel transaction spreadsheet has been created successfully");
         }
 
-        private void webBrowser2_DocumentCompleted_1(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e) //Button to go to Client Communication Manager home screen
         {
             panel11.Visible = true;
             panel12.Visible = false;
@@ -797,7 +755,7 @@ namespace RichemontMailMerge
             panel2.Top = button4.Top;
         }
 
-        private void button13_Click(object sender, EventArgs e)
+        private void button13_Click(object sender, EventArgs e) //Button for creating Sunland New Hire emails
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
@@ -899,7 +857,7 @@ namespace RichemontMailMerge
             }
         }
 
-        private void button14_Click(object sender, EventArgs e)
+        private void button14_Click(object sender, EventArgs e) ////Button for creating Sunland New Hire Final emails
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
@@ -999,6 +957,11 @@ namespace RichemontMailMerge
 
                 System.Windows.Forms.MessageBox.Show("New hire finals emails and noteload have generated successfully.");
             }
+        }
+
+        private void webBrowser2_DocumentCompleted_1(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            // Your code here
         }
 
     }

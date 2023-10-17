@@ -78,14 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RichemontMailMerge.exe" size="144832">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RichemontMailMerge.exe" size="144320">
       <assemblyIdentity name="RichemontMailMerge" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>OzSwtmDDHXufj5JBvi452kRAh9DkVszg++zagfuBaDQ=</dsig:DigestValue>
+        <dsig:DigestValue>LQRfYSrkHxitZ1IIan8kL/pnMpRN648tdeCK2da2m7s=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
