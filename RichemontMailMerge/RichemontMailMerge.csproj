@@ -102,7 +102,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CanceledEventProcessor.cs" />
+    <Compile Include="ClientPanelSetup.cs" />
     <Compile Include="CTDocumentProcessor.cs" />
+    <Compile Include="InitializationManager.cs" />
     <Compile Include="InsufficientDocumentProcessor.cs" />
     <Compile Include="NewHireProcessor.cs" />
     <Compile Include="Form1.cs">

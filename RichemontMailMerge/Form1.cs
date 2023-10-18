@@ -23,129 +23,7 @@ namespace RichemontMailMerge
         private List<EeidNote> eeidNotes = new List<EeidNote>();
         private List<EmployeeData> employeeDataList = new List<EmployeeData>();
         private List<System.Windows.Forms.Button> managedButtons = new List<System.Windows.Forms.Button>();
-
-        public Form1()
-        {
-            InitializeComponent();
-
-            managedButtons.Add(button4);
-            managedButtons.Add(button5);
-            managedButtons.Add(button6);
-            managedButtons.Add(button7);
-            managedButtons.Add(button9);
-
-            List<string> clients = new List<string> { "Please select a client", "Richemont", "Sunland", "Primetals", "Caromont" };
-
-            comboBox1.DataSource = clients;
-
-            // Set up placeholder text for text boxes
-            SetupPlaceholderText(textBox1, "Enter employee information");
-            SetupPlaceholderText(textBox2, "Enter EEID");
-            SetupPlaceholderText(textBox4, "Enter employee information");
-            SetupPlaceholderText(textBox3, "Enter EEID");
-            SetupPlaceholderText(textBox5, "Enter EEID");
-            SetupPlaceholderText(textBox6, "Enter EE name");
-            SetupPlaceholderText(textBox7, "Enter EE email address");
-
-            // Set initial panel visibility
-            Panel[] panels = { panel4, panel5, panel6, panel7, panel8, panel12, panel13 };
-            foreach (var panel in panels)
-            {
-                panel.Visible = false;
-            }
-
-            button12.Visible = false;
-            button7.Visible = false;
-
-            button4.Visible = false;
-            button5.Visible = false;
-            button6.Visible = false;
-            button9.Visible = false;
-        }
-
-        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e) //Method that handles when user selects a client
-        {
-            if (comboBox1.SelectedIndex == 0) // If the placeholder is selected
-            {
-                // Do nothing or inform the user to select a valid client
-                return;
-            }
-            string selectedClient = comboBox1.SelectedItem.ToString();
-            // Do something with the selected client
-            MessageBox.Show($"You selected: {selectedClient}");
-            if (selectedClient == "Richemont")
-            {
-                panel11.Visible = false;
-                panel4.Visible = true;
-                panel12.Visible = false;
-                panel5.Visible = false;
-                panel6.Visible = false;
-                panel7.Visible = false;
-                panel8.Visible = false;
-                panel2.Height = button4.Height;
-                panel2.Top = button4.Top;
-
-                button12.Visible = false;
-                button7.Visible = false;
-
-                button4.Visible = true;
-                button5.Visible = true;
-                button6.Visible = true;
-                button9.Visible = true;
-
-            }
-            if (selectedClient == "Sunland")
-            {
-                panel11.Visible = false;
-                panel12.Visible = true;
-                panel4.Visible = false;
-                panel5.Visible = false;
-                panel6.Visible = false;
-                panel7.Visible = false;
-                panel8.Visible = false;
-                button4.Visible = false;
-                button5.Visible = false;
-                button6.Visible = false;
-                button9.Visible = false;
-
-                button12.Visible = true;
-                button7.Visible = true;
-
-                button4.Visible = false;
-                button5.Visible = false;
-                button6.Visible = false;
-                button9.Visible = false;
-            }
-            if (selectedClient == "Primetals")
-            {
-                return;
-            }
-            if (selectedClient == "Caromont")
-            {
-                return;
-            }
-        }
-
-        private void SetupPlaceholderText(System.Windows.Forms.TextBox textBox, string placeholderText) //Method for setting placeholder text
-        {
-            textBox.Text = placeholderText;
-
-            textBox.GotFocus += (sender, e) =>
-            {
-                if (textBox.Text == placeholderText)
-                {
-                    textBox.Text = "";
-                }
-            };
-
-            textBox.LostFocus += (sender, e) =>
-            {
-                if (string.IsNullOrEmpty(textBox.Text))
-                {
-                    textBox.Text = placeholderText;
-                }
-            };
-        }
+        private List<string> clients = new List<string> { "Please select a client", "Richemont", "Sunland", "Primetals", "Caromont" };
 
         public class Record
         {
@@ -171,7 +49,167 @@ namespace RichemontMailMerge
             public string Note { get; set; }
         }
 
-        private void CreateNoteload1(string eeid, string name, string note) //Method used to create Treenode display for generating a noteload
+        public Form1()
+        {
+            InitializeComponent();
+
+            InitializeManagedButtons();
+            InitializeComboBox();
+            InitializePlaceholderTexts();
+            InitializePanelVisibility();
+            InitializeButtonVisibility();
+
+        }
+
+        private void InitializeManagedButtons()
+        {
+            managedButtons.Add(button4);
+            managedButtons.Add(button5);
+            managedButtons.Add(button6);
+            managedButtons.Add(button7);
+            managedButtons.Add(button9);
+        }
+
+        private void InitializeComboBox()
+        {
+            comboBox1.DataSource = clients;
+        }
+
+        private void InitializePlaceholderTexts()
+        {
+            SetupPlaceholderText(textBox1, "Enter employee information");
+            SetupPlaceholderText(textBox2, "Enter EEID");
+            SetupPlaceholderText(textBox4, "Enter employee information");
+            SetupPlaceholderText(textBox3, "Enter EEID");
+            SetupPlaceholderText(textBox5, "Enter EEID");
+            SetupPlaceholderText(textBox6, "Enter EE name");
+            SetupPlaceholderText(textBox7, "Enter EE email address");
+        }
+
+        private void InitializePanelVisibility()
+        {
+            Panel[] panels = { panel4, panel5, panel6, panel7, panel8, panel12, panel13 };
+            foreach (var panel in panels)
+            {
+                panel.Visible = false;
+            }
+        }
+
+        private void InitializeButtonVisibility()
+        {
+            button12.Visible = false;
+            button7.Visible = false;
+
+            button4.Visible = false;
+            button5.Visible = false;
+            button6.Visible = false;
+            button9.Visible = false;
+        }
+
+        private void SetupForRichemont()
+        {
+            panel11.Visible = false;
+            panel4.Visible = true;
+            panel12.Visible = false;
+            panel5.Visible = false;
+            panel6.Visible = false;
+            panel7.Visible = false;
+            panel8.Visible = false;
+            panel2.Height = button4.Height;
+            panel2.Top = button4.Top;
+
+            button12.Visible = false;
+            button7.Visible = false;
+
+            button4.Visible = true;
+            button5.Visible = true;
+            button6.Visible = true;
+            button9.Visible = true;
+        }
+
+        private void SetupForSunland()
+        {
+            panel11.Visible = false;
+            panel12.Visible = true;
+            panel4.Visible = false;
+            panel5.Visible = false;
+            panel6.Visible = false;
+            panel7.Visible = false;
+            panel8.Visible = false;
+            button4.Visible = false;
+            button5.Visible = false;
+            button6.Visible = false;
+            button9.Visible = false;
+
+            button12.Visible = true;
+            button7.Visible = true;
+
+            button4.Visible = false;
+            button5.Visible = false;
+            button6.Visible = false;
+            button9.Visible = false;
+        }
+
+        private void SetupForPrimetals()
+        {
+
+        }
+
+        private void SetupForCaromont()
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e) // Method that handles when user selects a client
+        {
+            if (comboBox1.SelectedIndex == 0)
+            {
+                return;
+            }
+            string selectedClient = comboBox1.SelectedItem.ToString();
+            
+            MessageBox.Show($"You selected: {selectedClient}");
+
+            if (selectedClient == "Richemont")
+            {
+                SetupForRichemont();
+            }
+            if (selectedClient == "Sunland")
+            {
+                SetupForSunland();
+            }
+            if (selectedClient == "Primetals")
+            {
+                SetupForPrimetals();
+            }
+            if (selectedClient == "Caromont")
+            {
+                SetupForCaromont();
+            }
+        }
+
+        private void SetupPlaceholderText(System.Windows.Forms.TextBox textBox, string placeholderText) // Method for setting placeholder text
+        {
+            textBox.Text = placeholderText;
+
+            textBox.GotFocus += (sender, e) =>
+            {
+                if (textBox.Text == placeholderText)
+                {
+                    textBox.Text = "";
+                }
+            };
+
+            textBox.LostFocus += (sender, e) =>
+            {
+                if (string.IsNullOrEmpty(textBox.Text))
+                {
+                    textBox.Text = placeholderText;
+                }
+            };
+        }
+
+        private void CreateNoteload1(string eeid, string name, string note) // Method used to create Treenode display for generating a noteload
         {
             TreeNode letterNode = new TreeNode($"Letter for {name} (EEID: {eeid})");
 
@@ -186,7 +224,7 @@ namespace RichemontMailMerge
             treeView1.Nodes.Add(letterNode);
         }
 
-        private void button1_Click(object sender, EventArgs e) //Button for Richemont New Hire Letters
+        private void button1_Click(object sender, EventArgs e) // Button for Richemont New Hire Letters
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
@@ -272,7 +310,7 @@ namespace RichemontMailMerge
             }
         }
 
-        private void button2_Click(object sender, EventArgs e) //Button for Richemont Completed Transactions
+        private void button2_Click(object sender, EventArgs e) // Button for Richemont Completed Transactions
         {
             string[] lines = textBox1.Text.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
             string note = "";
@@ -358,7 +396,7 @@ namespace RichemontMailMerge
             System.Windows.Forms.MessageBox.Show($"CT letter for {firstName} generated successfully and is ready for noteload.");
         }
 
-        private void button3_Click_1(object sender, EventArgs e) //Button for Richemont noteload Completed Transactions and Insufficient Documents generation
+        private void button3_Click_1(object sender, EventArgs e) // Button for Richemont noteload Completed Transactions and Insufficient Documents generation
         {
             DateTime currentDate = DateTime.Now;
             string dateString1 = currentDate.ToString("yyyyMMdd");
@@ -404,7 +442,7 @@ namespace RichemontMailMerge
             System.Windows.Forms.MessageBox.Show("CT letter, insufficient document letter, canceled transaction note load has generated successfully.");
         }
 
-        private void button4_Click(object sender, EventArgs e) //Button to display Panel4, used for Richemont New Hire Letters
+        private void button4_Click(object sender, EventArgs e) // Button to display Panel4, used for Richemont New Hire Letters
         {
             panel11.Visible = false;
             panel4.Visible = true;
@@ -416,7 +454,7 @@ namespace RichemontMailMerge
             panel2.Top = button4.Top;
         }
 
-        private void button5_Click(object sender, EventArgs e) //Button to display Panel5, used for Richemont Completed Transactions
+        private void button5_Click(object sender, EventArgs e) // Button to display Panel5, used for Richemont Completed Transactions
         {
             panel11.Visible = false;
             panel8.Visible = true;
@@ -429,7 +467,7 @@ namespace RichemontMailMerge
             panel2.Top = button5.Top;
         }
 
-        private void button6_Click(object sender, EventArgs e) //Button to display Panel6, used for Richemont Insufficient Documents
+        private void button6_Click(object sender, EventArgs e) // Button to display Panel6, used for Richemont Insufficient Documents
         {
             panel11.Visible = false;
             panel4.Visible = false;
@@ -441,7 +479,7 @@ namespace RichemontMailMerge
             panel2.Top = button6.Top;
         }
 
-        private void button9_Click(object sender, EventArgs e) //Button to display Panel7, used for Richemont Canceled Life Events
+        private void button9_Click(object sender, EventArgs e) // Button to display Panel7, used for Richemont Canceled Life Events
         {
             panel11.Visible = false;
             panel4.Visible = false;
@@ -453,7 +491,7 @@ namespace RichemontMailMerge
             panel2.Top = button9.Top;
         }
 
-        private void button7_Click(object sender, EventArgs e) //Button to display Panel12, used Sunland New Hire emails
+        private void button7_Click(object sender, EventArgs e) // Button to display Panel12, used Sunland New Hire emails
         {
             panel12.Visible = true;
             panel13.Visible = false;
@@ -461,7 +499,7 @@ namespace RichemontMailMerge
             panel2.Top = button7.Top;
         }
 
-        private void button12_Click(object sender, EventArgs e) //Button to display Panel13, used Sunland New Hire Final emails
+        private void button12_Click(object sender, EventArgs e) // Button to display Panel13, used Sunland New Hire Final emails
         {
             panel12.Visible = false;
             panel13.Visible = true;
@@ -469,7 +507,7 @@ namespace RichemontMailMerge
             panel2.Top = button12.Top;
         }
 
-        private void button8_Click_1(object sender, EventArgs e) //Button for Richemont Insufficient Documents
+        private void button8_Click_1(object sender, EventArgs e) // Button for Richemont Insufficient Documents
         {
             // Split the text from the TextBox into lines
             string[] lines = textBox4.Text.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
@@ -660,7 +698,7 @@ namespace RichemontMailMerge
             }*/
         }
 
-        private void button10_Click(object sender, EventArgs e) //Button for adding Richemont EE to Canceled Life events 
+        private void button10_Click(object sender, EventArgs e) // Button for adding Richemont EE to Canceled Life events 
         {
             string currentDate = DateTime.Now.ToString("yyyyMMdd");
             // Get data from the controls
@@ -690,7 +728,7 @@ namespace RichemontMailMerge
             System.Windows.Forms.MessageBox.Show("Employee has been added to the cancel transaction list");
         }
 
-        private void button11_Click(object sender, EventArgs e) //Button for creating Richemont Canceled Life events spreadsheet
+        private void button11_Click(object sender, EventArgs e) // Button for creating Richemont Canceled Life events spreadsheet
         {
             string dateString1 = DateTime.Now.ToString("yyyyMMdd");
             string canceledTransactionsFileName = $"Richemont Cancel Life Event {dateString1}";
@@ -731,7 +769,7 @@ namespace RichemontMailMerge
             System.Windows.Forms.MessageBox.Show("Cancel transaction spreadsheet has been created successfully");
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e) //Button to go to Client Communication Manager home screen
+        private void pictureBox1_Click(object sender, EventArgs e) // Button to go to Client Communication Manager home screen
         {
             panel11.Visible = true;
             panel12.Visible = false;
@@ -755,7 +793,7 @@ namespace RichemontMailMerge
             panel2.Top = button4.Top;
         }
 
-        private void button13_Click(object sender, EventArgs e) //Button for creating Sunland New Hire emails
+        private void button13_Click(object sender, EventArgs e) // Button for creating Sunland New Hire emails
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
@@ -857,7 +895,7 @@ namespace RichemontMailMerge
             }
         }
 
-        private void button14_Click(object sender, EventArgs e) ////Button for creating Sunland New Hire Final emails
+        private void button14_Click(object sender, EventArgs e) // Button for creating Sunland New Hire Final emails
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
